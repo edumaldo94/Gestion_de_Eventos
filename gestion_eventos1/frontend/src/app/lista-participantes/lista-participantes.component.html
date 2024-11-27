@@ -1,0 +1,134 @@
+<!--/app/lista-participantes/lista-participantes.component.html-->
+<!-- lista-participantes.component.html -->
+<div class="container mt-4 mb-5">
+  <h3 class="text-center mb-4">Participantes Confirmados/No Confirmados</h3>
+  <div *ngIf="participantes && participantes.length > 0">
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+         
+          <th>codigo</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Asistencia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let participante of participantes; let i = index">
+        
+          <td>{{ participante.idUsuario }}</td>
+          <td>{{ participante.nombre }}</td>
+          <td>{{ participante.email }}</td>
+          <td [ngClass]="{
+            'text-success': participante.confirmacion === 1,
+            'text-danger': participante.confirmacion === 0
+          }" class="font-weight-bold confirmation-status">
+            {{ participante.confirmacion === 1 ? 'Presente' : 'Ausente' }}
+            <button (click)="toggleConfirmacion(participante)" class="btn btn-sm" 
+            title="Asistencia">
+      <img [src]="participante.confirmacion === 1 ? '/assets/img/asistir.png' : '/assets/img/no-asistir.png'" alt="Confirmación" class="icono-accion"/>
+    </button>
+          </td>
+          <td>
+          
+            <button class="btn"
+            title="Editar Usuario">
+              <img 
+              src="/assets/img/editar-icono.png" 
+              alt="Ver Detalles" 
+              class="icono-accion"
+              (click)="abrirModalEditar(participante)"
+            />
+
+            </button>
+            <button 
+            (click)="borrarConfirmacion(participante)" 
+            class="btn"
+            title="Borrar Participante">  <img 
+              src="/assets/img/borrar.png" 
+              alt="Ver Detalles" 
+              class="icono-accion"
+            /></button>
+            <button 
+            (click)="descargarCertificado(participante.idUsuario)"
+            class="btn"
+            title="Imprimir Certificado">  <img 
+              src="/assets/img/imprimir2.png" 
+              alt="Imprimir" 
+              class="icono-accion"
+            /></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!participantes || participantes.length === 0" class="text-center mt-4">
+    <p class="text-muted">No hay participantes confirmados para este evento.</p>
+  </div>
+</div>
+<div style="height: 60px;"></div>
+<!-- Modal para editar participante -->
+<div
+  class="modal fade"
+  id="editarParticipanteModal"
+  tabindex="-1"
+  aria-labelledby="editarParticipanteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarParticipanteModalLabel">Editar Participante</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #editarForm="ngForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              [(ngModel)]="participanteSeleccionado.nombre"
+              name="nombre"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              [(ngModel)]="participanteSeleccionado.email"
+              name="email"
+              required
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

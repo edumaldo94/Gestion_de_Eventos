@@ -1,0 +1,13 @@
+/* Asegura que el contenido no quede detrás del footer */
+router-outlet {
+    margin-bottom: 60px; /* Ajusta según la altura del footer */
+  }
+  
+  .fixed-bottom app-footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,129 @@
+/* Aseguramos que el contenedor ocupe todo el espacio disponible y esté centrado */
+.container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+/* Estilo de la tarjeta de detalles del evento */
+.card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #35489e; /* Fallback color */
+  background: linear-gradient(135deg, #fff6da, #fff0ee, #fbf6eb, #ebebeb);
+
+  
+  padding: 30px;
+  width: 80%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Datos del evento */
+.evento-datos {
+  flex: 1;
+}
+
+.evento-datos h4 {
+  margin-top: 0;
+}
+
+.evento-datos p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+
+  color: #1e1e1e;
+}
+
+.evento-datos strong {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.evento-imagen {
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.evento-imagen img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Botones */
+.btn {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Espaciado entre el nav y la lista de participantes */
+.app-lista-participantes {
+  margin-top: 30px;
+  margin-bottom: 460px;
+}
+
+/* Cargando mensaje */
+.container.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header, .modal-footer {
+  background-color: #f8f9fa;
+}
+
+.modal-footer button {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}

@@ -1,0 +1,39 @@
+/* lista-de-eventos.component.css */
+
+
+/* Ajuste general del contenedor */
+.lista-eventos-container {
+  max-width: 1200px;
+  padding: 40px 20px;
+  margin-bottom: 100px; /* Alejar del footer */
+  margin: auto;
+  
+}
+.container{
+  margin-bottom: 60px;
+}
+/* Columna de descripción truncada */
+.descripcion-column {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Íconos de acciones */
+.icono-accion {
+  width: 38px;
+  height: 38px;
+}
+
+/* Espaciado entre botones */
+td .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+/* estilos personalizados */
+.bg-success {
+  background-color: #7ad8905f !important; /* Cambia el color si lo deseas */
+}

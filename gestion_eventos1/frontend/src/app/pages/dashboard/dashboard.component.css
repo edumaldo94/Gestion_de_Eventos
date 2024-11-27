@@ -1,0 +1,40 @@
+/* Contenedor de los formularios */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    margin-bottom: 60px; /* Espacio adicional para separar el formulario del footer */
+}
+
+/* Estilos para el formulario de la izquierda (Login) */
+.form-left,
+.form-right {
+    width: 45%; /* Ajusta el ancho de cada formulario */
+    padding: 20px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los elementos dentro del formulario */
+}
+
+/* Estilos de encabezado de cada formulario */
+.form-left h2,
+.form-right h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-left, .form-right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

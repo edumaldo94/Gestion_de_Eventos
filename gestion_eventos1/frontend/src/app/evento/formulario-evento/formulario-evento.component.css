@@ -1,0 +1,68 @@
+
+.evento-form {
+    max-width: 600px;
+    margin: 50px auto; /* Centrado y separado del footer */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Fondo suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .evento-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40; /* Tono oscuro */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #007bff; /* Azul cuando está activo */
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+  
+  textarea.form-control {
+    resize: none; /* Deshabilitar redimensionamiento */
+    height: 100px;
+  }
+  
+  button.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.btn:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+  }
+  
+  button.btn:disabled {
+    background-color: #c4c4c4; /* Gris cuando está deshabilitado */
+    cursor: not-allowed;
+  }
+  

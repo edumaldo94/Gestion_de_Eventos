@@ -1,0 +1,70 @@
+
+
+<div class="container mt-4">
+  <h2>Editar Perfil</h2>
+  <form (ngSubmit)="guardarCambios()" #form="ngForm">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        [(ngModel)]="usuario.nombre"
+        name="nombre"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        [(ngModel)]="usuario.email"
+        name="email"
+        required
+      />
+    </div>
+
+    <!-- Formulario para cambiar la contraseña -->
+    <div class="mb-3">
+      <label for="nuevaContrasena" class="form-label">Nueva Contraseña</label>
+      <input
+        type="password"
+        id="nuevaContrasena"
+        class="form-control"
+        [(ngModel)]="usuario.nuevaContrasena"
+        name="nuevaContrasena"
+        required
+        #nuevaContrasena="ngModel"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="confirmarContrasena" class="form-label">Confirmar Contraseña</label>
+      <input
+        type="password"
+        id="confirmarContrasena"
+        class="form-control"
+        [(ngModel)]="usuario.confirmarContrasena"
+        name="confirmarContrasena"
+        required
+        #confirmarContrasena="ngModel"
+        [ngClass]="{
+          'is-valid': confirmarContrasena.valid && confirmarContrasena.value === usuario.nuevaContrasena,
+          'is-invalid': confirmarContrasena.valid && confirmarContrasena.value !== usuario.nuevaContrasena
+        }"
+      />
+      <!-- Mensaje de error o éxito -->
+      <div *ngIf="confirmarContrasena.valid && confirmarContrasena.value === usuario.nuevaContrasena" class="valid-feedback">
+        Las contraseñas coinciden.
+      </div>
+      <div *ngIf="confirmarContrasena.valid && confirmarContrasena.value !== usuario.nuevaContrasena" class="invalid-feedback">
+        Las contraseñas no coinciden.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Guardar Cambios</button>
+  </form>
+</div>
+<div style="height: 30px;"></div>

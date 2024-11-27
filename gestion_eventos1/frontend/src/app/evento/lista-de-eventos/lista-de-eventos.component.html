@@ -1,0 +1,141 @@
+<!-- lista-de-eventos.component.html -->
+<div class="container mt-5 lista-eventos-container">
+  <h2 class="text-center mb-4">Lista de Eventos</h2>
+  
+  <!-- Tabla con Bootstrap 5 -->
+  <table id="tablaEventos" class="table table-hover table-bordered align-middle">
+    <thead class="table-dark text-center">
+      <tr>
+        <th>Participantes</th>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let evento of eventos" class="text-center">
+        <td [ngClass]="{'bg-success': evento.estaRegistrado}" class="text-center">{{ evento.CantidadParticipantes }}</td>
+        <td [ngClass]="{'bg-success': evento.estaRegistrado}">{{ evento.nombre }}</td>
+        <td [ngClass]="{'bg-success': evento.estaRegistrado}">{{ evento.ubicacion }}</td>
+        <td [ngClass]="{'bg-success': evento.estaRegistrado}">{{ evento.fecha | date: 'dd/MM/yyyy' }}</td>
+        <td class="d-flex justify-content-center align-items-center gap-2">
+          <!-- Botón Ver Detalles -->
+          <button 
+            class="btn" 
+            (click)="verDetalles(evento.idEvento)" 
+            title="Ver Detalles">
+            <img 
+              src="/assets/img/ver-detalles2.png" 
+              alt="Ver Detalles" 
+              class="icono-accion"
+            />
+          </button>
+
+          <!-- Botón Editar -->
+          <button 
+            *ngIf="puedeEditar()" 
+            class="btn" 
+            (click)="editarEvento(evento.idEvento)" 
+            title="Editar">
+            <img 
+              src="/assets/img/editar-icn.png" 
+              alt="Editar" 
+              class="icono-accion"
+            />
+          </button>
+
+          <!-- Botón Borrar -->
+          <button 
+            *ngIf="puedeEditar()" 
+            class="btn" 
+            (click)="borrarEvento(evento.idEvento)" 
+            title="Borrar">
+            <img 
+              src="/assets/img/delet3.png" 
+              alt="Borrar" 
+              class="icono-accion"
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Modal para Editar Evento -->
+<div class="modal fade" id="editarEventoModal" tabindex="-1" aria-labelledby="editarEventoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarEventoLabel">Editar Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para editar evento -->
+        <form #editarEventoForm="ngForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del Evento</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              [(ngModel)]="eventoSeleccionado.nombre"
+              name="nombre"
+              required
+            />
+          </div>
+          
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input
+              type="date"
+              id="fecha"
+              class="form-control"
+              [(ngModel)]="eventoSeleccionado.fecha"
+              name="fecha"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="ubicacion" class="form-label">Ubicación</label>
+            <input
+              type="text"
+              id="ubicacion"
+              class="form-control"
+              [(ngModel)]="eventoSeleccionado.ubicacion"
+              name="ubicacion"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea
+              id="descripcion"
+              class="form-control"
+              [(ngModel)]="eventoSeleccionado.descripcion"
+              name="descripcion"
+              required
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,24 @@
+/* Ajuste del margen inferior entre tabla y footer */
+
+
+.container {
+    margin-bottom: 2rem;
+  }
+  
+  /* Estilo para las filas de la tabla */
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .table thead th {
+    text-align: center;
+  }
+  
+  .table tbody td {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .confirmation-status {
+    font-size: 1.25rem; /* Ajusta el tamaño de la fuente a tu preferencia */
+  }
+  

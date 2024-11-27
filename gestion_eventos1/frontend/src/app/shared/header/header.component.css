@@ -1,0 +1,24 @@
+#dynamic-header {
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out, opacity 1s ease-in-out;
+    height: 400px; /* Ajusta según sea necesario */
+    position: relative;
+  }
+  
+  .fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .show {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  .custom-header {
+    color: rgba(248, 29, 120, 0.881); /* Cambia 'red' al color que prefieras */
+    font-weight: 400; /* Ajusta el grosor de la fuente */
+    text-align: center;
+  font-size: 100px;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}

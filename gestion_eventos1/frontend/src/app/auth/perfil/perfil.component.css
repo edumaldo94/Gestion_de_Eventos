@@ -1,0 +1,25 @@
+/* Asegúrate de que estas clases estén en tu archivo de estilos */
+.is-valid {
+    border-color: #28a745 !important;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545 !important;
+  }
+  
+  .valid-feedback {
+    color: #28a745;
+  }
+  
+  .invalid-feedback {
+    color: #dc3545;
+  }
+  .container{
+    max-width: 600px;
+    margin: 50px auto; /* Centrado y separado del footer */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Fondo suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }

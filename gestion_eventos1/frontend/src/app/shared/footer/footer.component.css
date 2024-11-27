@@ -1,0 +1,19 @@
+
+.footer {
+   
+    background: linear-gradient(135deg, #355c7adb, #275954, #355670db); /* Gradiente llamativo */
+    color: white; /* Texto blanco para contraste */
+    text-align: center; /* Centrar el contenido */
+    padding: 20px 0; /* Espaciado vertical */
+    font-size: 16px; /* Tamaño del texto */
+    font-family: 'Arial', sans-serif; /* Tipografía sencilla y profesional */
+    position: fixed; /* Fijar el footer */
+    bottom: 0; /* Ubicarlo en la parte inferior */
+    width: 100%; /* Que ocupe todo el ancho */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  }
+  
+  .footer-text {
+    margin: 0; /* Quitar márgenes del texto */
+  }
+  

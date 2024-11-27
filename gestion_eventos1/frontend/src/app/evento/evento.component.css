@@ -1,0 +1,77 @@
+
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    
+  }
+  
+  .navbar-nav .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .nav-link:hover {
+    color: #151515 !important;
+    background-color: rgba(255, 255, 255, 0.846);
+    border-radius: 0.25rem;
+  }
+  
+  .container {
+    margin-top: 20px;
+   
+  }
+  
+  /* Cambia el color del fondo y el texto del navbar */
+.custom-navbar {
+    background-color: #0d485afb; /* Cambia este color a tu preferencia */
+    color: #ffffff;
+  }
+  
+  .custom-navbar .nav-link {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .custom-navbar .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* Centra los ítems del navbar */
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 5rem; /* Ajusta el espacio entre los ítems */
+  }
+  
+  /* Estilo en hover */
+ 
+  
+  /* Navbar responsive */
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+  /* Asegúrate de que el navbar se mantenga fijo */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+  }
+  .logout-btn {
+    cursor: pointer; /* Cambia el cursor a una mano */
+    background: none; /* Opcional: Estilo del fondo */
+    border: none; /* Opcional: Estilo del borde */
+    color: #007bff; /* Cambia el color del texto */
+   
+}
+.logout-btn:hover {
+    color: #0056b3; /* Cambia el color al pasar el mouse */
+}

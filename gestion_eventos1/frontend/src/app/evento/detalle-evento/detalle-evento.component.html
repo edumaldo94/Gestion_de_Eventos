@@ -1,0 +1,104 @@
+<!--detalle-evento.component.html -->
+<!-- detalle-evento.component.html -->
+<app-evento></app-evento>   
+<div class="container d-flex justify-content-center align-items-center flex-column">
+  <div class="card p-4 shadow-lg">
+    <h2 class="text-center mb-4">Detalles del Evento</h2>
+    <div class="card-body">
+      <div class="d-flex align-items-start">
+        <!-- Datos del evento -->
+        <div class="evento-datos flex-grow-1">
+          <div class="mb-3">
+            <strong>Codigo:</strong>
+            <p class="fs-5">{{ evento?.idEvento }}</p>
+            <strong>Nombre:</strong>
+            <p class="fs-5">{{ evento?.nombre }}</p>
+          </div>
+          <div class="mb-3">
+            <strong>Descripción:</strong>
+            <p class="fs-5">{{ evento?.descripcion }}</p>
+          </div>
+          <div class="mb-3">
+            <strong>Ubicación:</strong>
+            <p class="fs-5">{{ evento?.ubicacion }}</p>
+          </div>
+          <div class="mb-3">
+            <strong>Fecha:</strong>
+            <p class="fs-5">{{ evento?.fecha | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div class="mb-3">
+            <strong>Total de Participantes:</strong>
+            <p class="fs-5">{{ evento?.cantidadParticipantes }}</p>
+          </div>
+        </div>
+
+        <!-- Imagen del evento -->
+        <div class="evento-imagen ms-4" *ngIf="evento.imagen">
+          <img [src]="'http://localhost:3000' + evento.imagen" alt="Imagen del evento" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <button 
+      class="btn btn-lg mt-4" 
+      [ngClass]="asistiendo ? 'btn-danger' : 'btn-success'" 
+      (click)="confirmarAsistencia()">
+      {{ asistiendo ? 'Cancelar Confirmación' : 'Confirmar' }}
+    </button>
+
+    <!-- Botón Editar Evento -->
+    <button 
+      *ngIf="rol === '1'"
+      class="btn btn-lg btn-primary mt-4" 
+      (click)="editarEvento()">
+      Editar
+    </button>
+  </div>
+</div>
+
+<app-lista-participantes [idEvento]="evento?.idEvento" *ngIf="rol === '1' && evento?.idEvento" class="app-lista-participantes"></app-lista-participantes>
+
+<div *ngIf="!evento" class="container loading">
+  <p class="text-center">Cargando detalles del evento...</p>
+</div>
+<div class="modal fade" id="editarEventoModal" tabindex="-1" aria-labelledby="editarEventoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarEventoModalLabel">Editar Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para editar el evento -->
+        <form #editarEventoForm="ngForm" (ngSubmit)="guardarCambios()">
+          <div class="mb-3">
+            <label for="nombreEvento" class="form-label">Nombre del Evento</label>
+            <input type="text" class="form-control" id="nombreEvento" [(ngModel)]="evento.nombre" name="nombre" required />
+          </div>
+          <div class="mb-3">
+            <label for="descripcionEvento" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcionEvento" [(ngModel)]="evento.descripcion" name="descripcion" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="ubicacionEvento" class="form-label">Ubicación</label>
+            <input type="text" class="form-control" id="ubicacionEvento" [(ngModel)]="evento.ubicacion" name="ubicacion" required />
+          </div>
+          <div class="mb-3">
+            <label for="fechaEvento" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fechaEvento" [(ngModel)]="evento.fecha" name="fecha" required />
+          </div>
+          <!-- Campo para cargar una nueva imagen -->
+          <div class="mb-3">
+            <label for="imagenEvento" class="form-label">Imagen del Evento</label>
+            <input type="file" class="form-control" id="imagenEvento" (change)="onFileSelected($event)" />
+          </div>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

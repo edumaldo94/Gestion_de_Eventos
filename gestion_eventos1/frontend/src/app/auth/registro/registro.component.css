@@ -1,0 +1,57 @@
+/* Contenedor del formulario de Registro */
+.registro-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #234264;
+    box-shadow: 0 4px 8px rgba(40, 64, 117, 0.796);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los elementos dentro del formulario */
+}
+
+/* Encabezado del formulario de Registro */
+.registro-container h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #eaeaea;
+}
+
+/* Estilos para los inputs, select y botón de Registro */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Alinear el texto en las etiquetas */
+label {
+    display: block;
+    font-weight: bold;
+    color: #eeeeee;
+    margin-bottom: 5px;
+}
