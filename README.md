@@ -72,8 +72,8 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 ### **1. Clonar el repositorio**
 ```bash
 
-git clone https://github.com/edumaldo94/Sistema-de-Gesti-n-de-Eventos
-cd Sistema-de-Gesti-n-de-Eventos
+git clone https://github.com/edumaldo94/Gestion_de_Eventos.git
+cd Gestion_de_Eventos
 ```
 ### **2. Configurar el Backend**
 Ve a la carpeta del backend:
