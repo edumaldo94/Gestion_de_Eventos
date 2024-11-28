@@ -48,10 +48,19 @@ ORDER BY
     },
 
 //1. Registro de Eventos: Operación de Eliminación
-    eliminar: (id, callback) => {
-        const sql = 'DELETE FROM evento WHERE idEvento = ?';
-        db.query(sql, [id], callback);
-    },
+eliminar: (id, callback) => {
+    // Primero elimina las relaciones en otras tablas
+    const sqlParticipacion = 'DELETE FROM participacion WHERE idEvento = ?';
+    const sqlEvento = 'DELETE FROM evento WHERE idEvento = ?';
+
+    db.query(sqlParticipacion, [id], (err) => {
+        if (err) {
+            return callback(err);
+        }
+        // Luego elimina el evento
+        db.query(sqlEvento, [id], callback);
+    });
+},
 
 
 //2. Visualización de Evento: Lista de Eventos ordenados por Fecha
